@@ -4,7 +4,7 @@ return {
     build = ":TSUpdate",
     config = function()
         require("nvim-treesitter.configs").setup({
-            esure_installed = {
+            ensure_installed = {
                 "javascript", "typescript", "java", "bash", "vimdoc",
             },
 
@@ -23,7 +23,7 @@ return {
                     end
 
                     local max_filesize = 100 * 1024
-                    local ok, stats = pcall(vim.loops.fs_stat, vim.api.nvim_buf_get_name(buf))
+                    local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
                     if ok and stats.size > max_filesize then
                         vim.notify(
                             "File larger than 100KB treesitter disabled for performace",
